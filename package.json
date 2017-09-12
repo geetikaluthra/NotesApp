@@ -1,0 +1,16 @@
+{
+  "name": "nodeprac",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Geetika luthra",
+  "license": "ISC",
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "yards": "^0.1.4",
+    "yargs": "^4.7.1"
+  }
+}
