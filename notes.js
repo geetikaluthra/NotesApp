@@ -1,4 +1,4 @@
-console.log('Starting notes');
+//console.log('Starting notes');
 const fs=require('fs');
 
 var fetchNotes=()=>{
@@ -36,11 +36,15 @@ var addNote =(title,body)=>{
 };
 
 var getAll=()=>{
-	console.log('Getting All notes');
+	return fetchNotes();
 };
 
 var getNote = (title)=>{
+	var notes=fetchNotes();
+	var fnotes=notes.filter((note)=>note.title===title);
 	console.log('Reading note :',title);
+	return fnotes[0];
+	
 };
 
 var removeNote=(title)=>{
@@ -51,9 +55,17 @@ var removeNote=(title)=>{
 	return notes.length!==fnotes.length;
 };
 
+var logNote=(note)=>{
+	//debugger;
+	console.log('--');
+	console.log(`Title: ${note.title}`);
+	console.log(`Body: ${note.body}`);
+};
+
 module.exports={
 	addNote,
 	getAll,
 	getNote,
-	removeNote
+	removeNote,
+	logNote
 };
