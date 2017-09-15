@@ -6,8 +6,34 @@ const notes=require('./notes.js');
 const _=require('lodash');
 const yargs=require('yargs');
 
-var argv=yargs.argv;
+const titleOptions=
+{
+	describe:'Title of the note',
+	demand:true,
+	alias:'t'
+};
+const bodyOptions={
+	describe:'Body of the note',
+	demand:true,
+	alias:'b'
+};
+//var argv=yargs.argv;
 //console.log('yargs Command:',argv);
+var argv=yargs
+		.command('add','Add a new Note',{
+			title:titleOptions,
+			body:bodyOptions
+		})
+		.command('list','List all notes')
+		.command('read','Read a note',{
+			title:titleOptions
+		})
+		.command('remove','Removes a note',{
+			title:titleOptions
+		})
+		.help()
+		.argv;
+
 
 var command=argv._[0];
 console.log('Command:',command);
